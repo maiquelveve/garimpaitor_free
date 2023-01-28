@@ -1,0 +1,47 @@
+type User {
+	id: ID
+	name: String
+	email: String
+	password: String
+	avatarLink: String
+	status: Boolean
+	isRoot: Boolean
+	type: String
+	token: String
+}
+
+input UserInput {
+	name: String
+	email: String
+	password: String
+}
+
+input UserLoginInput {
+	email: String
+	password: String
+}
+
+input UserFiltersInput {
+	name: String
+}
+
+type Query {
+	login(data: UserLoginInput!) : User
+	getUser(id: ID): User
+	getAllUsers(data: UserFiltersInput): [User]
+	getUserByToken: User!
+}
+
+type Mutation {
+	createUser(data: UserInput!): User!
+	createUserTypeMarktplace(data: UserInput!): User!
+	activateUser(id: ID!): Boolean!
+	resetPassword(email: String!): Boolean!
+	updateUser(id: ID!, data: UserInput!): Boolean!
+	disableUser(id: ID!): Boolean!
+	changePassword(id: ID!, currentPassword: String!, newPassword: String!): Boolean!
+	# ######### ONLY ROOT HAS ACCESS ##########
+	changePermissionRoot(user_id: ID!, permission: String!): Boolean!
+	disableUserRoot(user_id: ID!): Boolean!
+	activateUserRoot(user_id: ID!): Boolean!
+}

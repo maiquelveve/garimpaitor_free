@@ -1,0 +1,23 @@
+type Country {
+	id: ID
+	name: String
+	initial: String
+}
+
+type State {
+	id: ID
+	name: String
+	initial: String
+	country: Country
+}
+
+type City {
+	id: ID
+	name: String
+	state: State
+}
+
+type Query {
+	getStates: [State!]
+	getCitys(state_id: ID!): [City!]
+}

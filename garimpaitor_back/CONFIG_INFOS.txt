@@ -1,0 +1,27 @@
+/*
+    ************************* CONFIGURAÇÕES E COMOANDOS ************************
+    //EXECUTAR AS MIGRATES
+        - npx sequelize-cli db:migrate
+
+    //CRIAR NOVA MIGRATES
+        - npx sequelize-cli migration:generate --name NOME-MIGRATE
+
+    //DESFAZER A ULTIMA MIGRATE 
+        - npx sequelize-cli db:migrate:undo
+
+    //ENV
+        PORT=4000
+
+        SECRET_TOKEN=asdflqk+KasdLKJD{/+-QA6S98+1A1SD~QW3APS::W0asSDE++58a4sd5as4d5fSA12sd1fAS#%
+        EXPIRESIN=7d
+
+        API_PROTOCOL=http://
+        API_HOST=localhost:
+        API_PORT=4000
+
+        DB_DIALECT=mysql
+        DB_HOST=localhost
+        DB_USERNAME=root
+        DB_PASSWORD=root
+        DB_NAME_DATABASE=users_services_db    
+*/

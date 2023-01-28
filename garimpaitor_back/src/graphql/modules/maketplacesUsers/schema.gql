@@ -1,0 +1,10 @@
+input MarketplaceUserInput {
+	marketplace_id: ID!
+	user_id: ID!
+}
+
+type Mutation {
+	addMarketplaceUser(data: MarketplaceUserInput!): Boolean!
+	disableMarketplaceUser(id: ID!): Boolean!
+	activateMarketplaceUser(id: ID!): Boolean!
+}

@@ -1,0 +1,36 @@
+type Network {
+	id: ID
+	name: String
+	status: Boolean
+	verified: Boolean
+}
+
+type Brand {
+	id: ID
+	name: String
+	status: Boolean
+	verified: Boolean
+	network: Network
+}
+
+input BrandInput {
+	name: String!
+	network_id: ID!
+}
+
+type Query {
+	getAllBrands: [Brand]
+	getBrandId(id: ID!): Brand
+	getBrandName(name: String!): [Brand]
+	getForNetwork(network_id: ID!): [Brand]
+}
+
+type Mutation {
+	createBrand(data: BrandInput!): Brand
+	# ######### ONLY ROOT HAS ACCESS ##########
+	updateBrand(id: ID!, data: BrandInput!): Brand!
+	activateBrand(id: ID!): Boolean!
+	disableBrand(id: ID!): Boolean!
+	verifyBrand(id: ID!): Boolean!
+	createBrandSystem(data: BrandInput!): Brand
+}

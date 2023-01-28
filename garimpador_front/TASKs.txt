@@ -1,0 +1,5 @@
+USERS
+    - pensar em ativar conta com link por email....mas depois
+
+MARKETPLACE
+    - CNPJ busca e preenche dados se ja cadastrado

@@ -1,0 +1,26 @@
+type Network {
+	id: ID
+	name: String
+	status: Boolean
+	verified: Boolean
+}
+
+input NetworkInput {
+	name: String!
+}
+
+type Query {
+	getAllNetworks: [Network]
+	getNetworkId(id: ID!): Network
+	getNetworkName(name: String!): [Network]
+}
+
+type Mutation {
+	createNetwork(data: NetworkInput!): Network
+	# ######### ONLY ROOT HAS ACCESS ##########
+	updateNetwork(id: ID!, data: NetworkInput!): Network!
+	activateNetwork(id: ID!): Boolean!
+	disableNetwork(id: ID!): Boolean!
+	verifyNetwork(id: ID!): Boolean!
+	createNetworkSystem(data: NetworkInput!): Network
+}

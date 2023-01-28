@@ -1,0 +1,75 @@
+type Country {
+	id: ID
+	name: String
+	initial: String
+}
+
+type State {
+	id: ID
+	name: String
+	initial: String
+	country: Country
+}
+
+type City {
+	id: ID
+	name: String
+	state: State
+}
+
+type Network {
+	id: ID
+	name: String
+	status: Boolean
+	verified: Boolean
+}
+
+type Brand {
+	id: ID
+	name: String
+	status: Boolean
+	verified: Boolean
+	network: Network
+}
+
+type Marketplace {
+	id: ID
+	cnpj: String
+	street: String
+	number: String
+	neighborhood: String
+	cep: String
+	complement: String
+	isMyMarketplace: Boolean
+	marketplaceUserStatus: Boolean
+	status: Boolean
+	city: City
+	brand: Brand
+}
+
+input MarketplaceInput {
+	cnpj: String!
+	street: String!
+	number: String
+	neighborhood: String
+	cep: String
+	complement: String
+	city_id: ID!
+	brand_id: ID!
+}
+
+type Query {
+	getAllMarketplaces: [Marketplace]
+	getMarketplaceId(id: ID!): Marketplace
+	getMarketplaceCnpj(cnpj: String!): Marketplace
+	getMarketplaceFilters(brand: String, network: String, cnpj: String, city: String): [Marketplace]
+}
+
+type Mutation {
+	createMarketplace(data: MarketplaceInput!): Marketplace
+	updateMarketplace(id: ID!, data: MarketplaceInput!): Boolean!
+	# ######### ONLY ROOT HAS ACCESS ##########
+	createMarketplaceSystem(data: MarketplaceInput!): Marketplace
+	disableMarketplaceSystem(id: ID!): Boolean!
+	activateMarketplaceSystem(id: ID!): Boolean!
+}

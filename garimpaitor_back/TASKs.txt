@@ -1,0 +1,11 @@
+PRODUCTS
+    - create
+    - update
+    - getAllUser
+    - getId
+    - getForMarketplaceUser
+    - Pensar aqui em como fazer a parte de pegar ou não o PRODUTOS
+    - Pensar na parte das Notas para os mercados
+    - transformar ou não em publico  
+    - depois ver esses getAllPublic
+    - depois ver esses getForMarketplacePublic     
